@@ -46,7 +46,6 @@ async function startQuotes(){
   isFirstQuote = true;
   let quoteIndex = 0;
   for(let i = 0; i < Math.floor(timerValue/10)  ;i++){
-    console.log(Math.floor(timerValue));
     const quoteData = quoteList[quoteIndex];
 
     const [actQuoteText, actQuoteAuthor] = quoteData.split(";");
@@ -98,7 +97,7 @@ function getEnglishMaleVoice() {
   if (!enVoice) {
     var undszab = underline("Mikrosoft Szabolcs");
     if(isFirstQuote){
-      alert(`Nincs angol TTS hang telepítve ezen a gépen! A felolvasás magyarul fog történni, vagy nem lesz természetes az angol kiejtés.\n\nElérhető felolvasó: ${undszab}\n\nTelepítés Windows-on:\n1. Gépház -> Idő és nyelv -> Beszéd\n2. „Hangok hozzáadása”\n3. Válassz „English (United States)” vagy más angol hangot\n4. Böngésző újraindítása\n\nMac-en: System Settings > Accessibility > Spoken Content > System Voice \n és ajánlott edge/firefox/google(néha működik) használata`);
+      // alert(`Nincs angol TTS hang telepítve ezen a gépen! A felolvasás magyarul fog történni, vagy nem lesz természetes az angol kiejtés.\n\nElérhető felolvasó: ${undszab}\n\nTelepítés Windows-on:\n1. Gépház -> Idő és nyelv -> Beszéd\n2. „Hangok hozzáadása”\n3. Válassz „English (United States)” vagy más angol hangot\n4. Böngésző újraindítása\n\nMac-en: System Settings > Accessibility > Spoken Content > System Voice \n és ajánlott edge/firefox/google(néha működik) használata`);
       isFirstQuote = false;
     }
     // alert(`Nincs angol TTS hang telepítve ezen a gépen! A felolvasás magyarul fog történni, vagy nem lesz természetes az angol kiejtés.\n\nElérhető felolvasó: ${undszab}\n\nTelepítés Windows-on:\n1. Gépház -> Idő és nyelv -> Beszéd\n2. „Hangok hozzáadása”\n3. Válassz „English (United States)” vagy más angol hangot\n4. Böngésző újraindítása\n\nMac-en: System Settings > Accessibility > Spoken Content > System Voice \n és ajánlott edge/firefox/google(néha működik) használata`);

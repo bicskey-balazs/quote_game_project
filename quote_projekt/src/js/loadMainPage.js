@@ -8,7 +8,8 @@ loadMainBtn.addEventListener("click", async() => {
 
     const scripts = [
       "/src/js/main.js",
-      "/src/js/timer.js"
+      "/src/js/timer.js",
+      "src/js/bgEffect.js"
     ];
 
     for (const src of scripts) {

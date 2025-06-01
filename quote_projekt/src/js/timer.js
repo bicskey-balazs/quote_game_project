@@ -1,6 +1,7 @@
 const medmusic = document.querySelector("#medmusic")
 const bgmusic = document.querySelector("#bgmusic")
 const gongmusic = document.querySelector("#gongmusic")
+
 const timerInput1 = document.querySelector("#setTimer1");
 const timerInput2 = document.querySelector("#setTimer2");
 const timerInput3 = document.querySelector("#setTimer3");
