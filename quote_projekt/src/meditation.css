@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Noto Serif JP', 'Roboto', serif;
+  background: linear-gradient(180deg, #0b2224 0%, #18302c 100%);
+  overflow-x: hidden;
+}
+
+#bgOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image: url('../assets/zen-forest.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(1.5px) brightness(0.92) grayscale(10%);
+  opacity: 0.98;
+  transition: opacity 1.8s;
+  box-shadow: 0 0 200px #18302c inset;
+}
+#bgOverlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 25%, rgba(255,255,255,0.09) 0%, rgba(20,40,40,0.41) 89%);
+  pointer-events: none;
+}
+
+.zen-fog, .zen-fog2 {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 40% 60%, rgba(255,255,255,0.10) 0, rgba(255,255,255,0.01) 80%);
+  animation: fogMove 38s linear infinite;
+  opacity: 0.77;
+}
+.zen-fog2 {
+  animation: fogMove2 54s linear infinite;
+  opacity: 0.38;
+  background: radial-gradient(circle at 70% 30%, rgba(200,255,255,0.12) 0, rgba(255,255,255,0.01) 90%);
+}
+@keyframes fogMove {
+  0% { transform: translateX(0) scale(1.15);}
+  50% { transform: translateX(120px) scale(1.20);}
+  100% { transform: translateX(-120px) scale(1.15);}
+}
+@keyframes fogMove2 {
+  0% { transform: translateY(0) scale(1.15);}
+  50% { transform: translateY(-60px) scale(1.21);}
+  100% { transform: translateY(40px) scale(1.18);}
+}
+
+.zen-light {
+  position: fixed;
+  width: 100vw; height: 100vh;
+  top: 0; left: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(120deg, rgba(255,255,200,0.07) 0 10px, transparent 10px 60px);
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  animation: lightSweep 15s linear infinite;
+}
+@keyframes lightSweep {
+  0% { filter: blur(0px) brightness(1.03);}
+  50% { filter: blur(8px) brightness(1.09);}
+  100% { filter: blur(0px) brightness(1.03);}
+}
+
+.zen-leaves {
+  position: fixed;
+  width: 100vw; height: 100vh;
+  z-index: 5;
+  pointer-events: none;
+  background-image: url('../assets/zen-leaves.png');
+  background-size: 30%, 20%;
+  background-repeat: repeat-x, repeat-x;
+  animation: leavesFall 20s linear infinite;
+  opacity: 0.15;
+}
+@keyframes leavesFall {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 900px 600px, 400px 700px; }
+}
+
+.zen-water {
+  position: fixed;
+  left: 0; bottom: 0;
+  width: 100vw; height: 170px;
+  z-index: 7;
+  background: linear-gradient(180deg, rgba(30,60,70,0.23) 0%, rgba(0,0,0,0.75) 100%);
+  border-radius: 0 0 100vw 100vw/0 0 300px 300px;
+  overflow: hidden;
+  opacity: 0.92;
+}
+.zen-water::before {
+  content: "";
+  display: block;
+  width: 100vw; height: 120px;
+  background: repeating-linear-gradient(120deg, rgba(180,190,230,0.10) 0 16px, transparent 16px 40px);
+  opacity: 0.26;
+  animation: waterWaves 23s linear infinite;
+}
+@keyframes waterWaves {
+  0% { transform: translateX(0);}
+  100% { transform: translateX(400px);}
+}
+
+.zen-torii {
+  position: fixed;
+  left: 50vw; top: 37vh;
+  transform: translate(-50%, -50%) scale(1.18);
+  z-index: 12;
+  opacity: 0.93;
+  animation: toriiAppear 3.2s cubic-bezier(0.47, 1.64, 0.41, 0.8) forwards;
+  filter: drop-shadow(0 12px 60px #225e1c99);
+}
+.zen-torii img {
+  width: 420px;
+  max-width: 95vw;
+  height: auto;
+  filter: drop-shadow(0 0 20px #233d1e44);
+}
+
+@keyframes toriiAppear {
+  0% { opacity: 0; transform: translate(-50%, -70%) scale(1.32);}
+  70% { opacity: 1; transform: translate(-50%, -53%) scale(1.21);}
+  100% { opacity: 0.93; transform: translate(-50%, -50%) scale(1.18);}
+}
+
+.zen-koi {
+  position: fixed;
+  width: 170px; height: 170px;
+  z-index: 15;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.82;
+  filter: drop-shadow(0 8px 32px #0c2422cc);
+}
+#koi1 {
+  left: 12vw; bottom: 15vh;
+  background-image: url('../assets/koi1.png');
+  animation: koiSwim1 22s linear infinite;
+}
+#koi2 {
+  left: 63vw; bottom: 20vh;
+  background-image: url('../assets/koi2.png');
+  animation: koiSwim2 27s linear infinite;
+}
+@keyframes koiSwim1 {
+  0%   { transform: translate(0, 0) scale(1) rotate(-8deg);}
+  35%  { transform: translate(130px, -55px) scale(1.1) rotate(4deg);}
+  55%  { transform: translate(170px, 60px) scale(0.91) rotate(-14deg);}
+  100% { transform: translate(0, 0) scale(1) rotate(-8deg);}
+}
+@keyframes koiSwim2 {
+  0%   { transform: translate(0, 0) scale(-1,1) rotate(14deg);}
+  40%  { transform: translate(-120px, -80px) scale(-0.93,1) rotate(8deg);}
+  65%  { transform: translate(-140px, 70px) scale(-1.1,1) rotate(-7deg);}
+  100% { transform: translate(0, 0) scale(-1,1) rotate(14deg);}
+}
+
+.zen-yinyang {
+  position: fixed;
+  right: 3vw; top: 9vh;
+  width: 120px; height: 120px;
+  z-index: 18;
+  background: url('../assets/yin-yang.png') center/contain no-repeat;
+  animation: yinyangSpin 15s linear infinite;
+  opacity: 0.54;
+  filter: drop-shadow(0 0 18px #fff8) blur(0.5px);
+}
+@keyframes yinyangSpin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.display-3#test {
+  color: #eafce1;
+  text-shadow: 0 0 40px #ffffff44, 0 0 20px #233d1e99, 0 0 100px #fff;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 3px;
+  padding-top: 2vh;
+  filter: blur(0.7px);
+}
+
+#test2 {
+  color: #eafce1;
+  text-shadow: 0 0 20px #ffffff33, 0 0 10px #233d1e88;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 1.5px;
+  padding-bottom: 1vh;
+}
+
+#meditationMain {
+  position: relative;
+  z-index: 30;
+  margin-top: 40px;
+  padding-bottom: 60px;
+  background: rgba(28,30,38,0.18);
+  border-radius: 32px;
+  box-shadow: 0 12px 80px #0a1a1a77;
+  backdrop-filter: blur(3.5px);
+  border: 1.5px solid #7dc3b1a1;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timerInputs label, #timerLabel {
+  color: #d2fadc;
+  font-family: 'Noto Serif JP', serif;
+  text-shadow: 0 0 12px #73e6cf99;
+}
+
+.timerInput, .timerInput:focus {
+  font-size: 2rem;
+  text-align: center;
+  width: 65px;
+  border-radius: 15px;
+  border: none;
+  background: #4ab8b1bb;
+  color: #fff;
+  box-shadow: 0 4px 10px #122e2f55;
+  outline: none;
+  margin: 0 4px;
+  transition: background 0.5s;
+}
+.timerInput:focus {
+  background: #57e6e1cc;
+}
+
+.colon {
+  font-size: 2rem;
+  color: #b5ffe9;
+  text-shadow: 0 0 12px #7dc3b1a1;
+  margin: 0 7px;
+}
+
+#timerDisplay {
+  width: 90%;
+  font-size: 2.7rem;
+  text-align: center;
+  height: 100px;
+  margin: 0 auto;
+  color: #ffe;
+  text-shadow: 0 0 24px #41f7e1a2, 0 0 30px #fff8;
+  letter-spacing: 4px;
+  z-index: 10;
+  border-radius: 20px;
+  background: rgba(58, 88, 86, 0.22);
+  box-shadow: 0 4px 30px #39e4d477;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#timerBtn, #stopBtn {
+  position: relative;
+  z-index: 10;
+  font-size: 1.5rem;
+  border-radius: 22px;
+  box-shadow: 0 6px 20px #1a2c1c44;
+  letter-spacing: 1px;
+  padding: 8px 32px;
+  margin: 8px auto;
+  background: linear-gradient(90deg, #3caea3 0%, #2b5d4b 100%);
+  border: none;
+  transition: background 0.4s, box-shadow 0.5s;
+}
+
+#timerBtn:hover, #stopBtn:hover {
+  background: linear-gradient(90deg, #6decb9 0%, #114e3c 100%);
+  box-shadow: 0 12px 40px #1a2c1c77;
+}
+
+#seged {
+  font-size: 16px;
+  color: #eafce1;
+}
+
+@media (max-width: 850px) {
+  .zen-torii img { width: 260px; }
+  .zen-koi { width: 80px; height: 80px; }
+  #meditationMain { max-width: 99vw; }
+}

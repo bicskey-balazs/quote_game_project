@@ -1,0 +1,230 @@
+/* Zen háttérkép */
+.zen-bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  top: 0; left: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #25403e 0%, #111a1a 100%);
+  background-image: url('kepek/bg/4k-Serene-Nature-Torii-Arch-4K-Wallpaper.jpg'); /* pl. ![image5](image5) */
+  background-size: cover;
+  background-position: center;
+  filter: blur(0.5px) brightness(0.98);
+}
+
+/* Fátyolos köd animáció */
+.zen-fog, .zen-fog2 {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 40% 60%, rgba(255,255,255,0.10) 0, rgba(255,255,255,0.01) 80%);
+  animation: fogMove 32s linear infinite;
+  opacity: 0.87;
+}
+.zen-fog2 {
+  animation: fogMove2 46s linear infinite;
+  opacity: 0.53;
+  background: radial-gradient(circle at 70% 30%, rgba(200,255,255,0.12) 0, rgba(255,255,255,0.01) 90%);
+}
+@keyframes fogMove {
+  0% { transform: translateX(0) scale(1.1); }
+  50% { transform: translateX(60px) scale(1.14); }
+  100% { transform: translateX(-60px) scale(1.09);}
+}
+@keyframes fogMove2 {
+  0% { transform: translateY(0) scale(1.2);}
+  50% { transform: translateY(-40px) scale(1.11);}
+  100% { transform: translateY(20px) scale(1.25);}
+}
+
+/* Fény animáció (napfény/shafts) */
+.zen-light {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: repeating-linear-gradient(120deg, rgba(255,255,220,0.08) 0 8px, transparent 8px 48px);
+  mix-blend-mode: screen;
+  opacity: 0.4;
+  animation: lightSweep 12s linear infinite;
+}
+@keyframes lightSweep {
+  0% { filter: blur(0px) brightness(1.1);}
+  50% { filter: blur(5px) brightness(1.2);}
+  100% { filter: blur(0px) brightness(1.1);}
+}
+
+/* Levelek hullámzása animációval */
+.zen-leaves {
+  pointer-events: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  background-image: url('kepek/bg/leafes.png'); /* készíts átlátszó PNG-t! */
+  background-size: 45%, 27%;
+  background-repeat: repeat-x, repeat-x;
+  animation: leavesFall 24s linear infinite;
+  opacity: 0.25;
+}
+@keyframes leavesFall {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 1200px 500px, 600px 700px; }
+}
+
+/* Hullámzó víz animáció */
+.zen-water {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100vw; height: 140px;
+  z-index: 5;
+  background: linear-gradient(180deg, rgba(10,40,50,0.2) 0%, rgba(0,0,0,0.7) 100%);
+  border-radius: 0 0 100vw 100vw/0 0 200px 200px;
+  overflow: hidden;
+}
+.zen-water::before {
+  content: "";
+  display: block;
+  width: 100vw; height: 110px;
+  background: repeating-linear-gradient(120deg, rgba(180,190,230,0.10) 0 16px, transparent 16px 40px);
+  opacity: 0.45;
+  animation: waterWaves 18s linear infinite;
+}
+@keyframes waterWaves {
+  0% { transform: translateX(0);}
+  100% { transform: translateX(200px);}
+}
+
+/* Torii kapu animáció és beúszás */
+.zen-torii {
+  position: absolute;
+  left: 50%; top: 38%;
+  z-index: 8;
+  transform: translate(-50%, -50%) scale(1.04);
+  opacity: 0.97;
+  animation: toriiAppear 2.8s cubic-bezier(0.47, 1.64, 0.41, 0.8) forwards;
+}
+@keyframes toriiAppear {
+  0% { opacity: 0; transform: translate(-50%, -70%) scale(1.2);}
+  70% { opacity: 1; transform: translate(-50%, -53%) scale(1.08);}
+  100% { opacity: 0.97; transform: translate(-50%, -50%) scale(1.04);}
+}
+
+/* Koi halak animációja */
+.zen-koi {
+  position: absolute;
+  width: 180px; height: 180px;
+  z-index: 10;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  opacity: 0.74;
+  filter: drop-shadow(0 6px 32px #0c2422cc);
+}
+#koi1 {
+  left: 10vw; bottom: 22vh;
+  background-image: url('kepek/bg/koi_black.png'); /* ![image6](image6) */
+  animation: koiSwim1 17s linear infinite;
+}
+#koi2 {
+  left: 57vw; bottom: 18vh;
+  background-image: url('kepek/bg/koi_white.png'); /* ![image6](image6) invertált vagy másik irány */
+  animation: koiSwim2 22s linear infinite;
+}
+@keyframes koiSwim1 {
+  0%   { transform: translate(0, 0) scale(1) rotate(-8deg);}
+  35%  { transform: translate(140px, -65px) scale(1.1) rotate(4deg);}
+  55%  { transform: translate(170px, 50px) scale(0.95) rotate(-14deg);}
+  100% { transform: translate(0, 0) scale(1) rotate(-8deg);}
+}
+@keyframes koiSwim2 {
+  0%   { transform: translate(0, 0) scale(-1,1) rotate(14deg);}
+  40%  { transform: translate(-120px, -80px) scale(-0.93,1) rotate(8deg);}
+  65%  { transform: translate(-140px, 70px) scale(-1.1,1) rotate(-7deg);}
+  100% { transform: translate(0, 0) scale(-1,1) rotate(14deg);}
+}
+
+
+
+/* Yin-yang animáció */
+.zen-yinyang {
+  position: absolute;
+  right: 3vw; top: 11vh;
+  width: 160px; height: 160px;
+  z-index: 12;
+  background: url('kepek/bg/yin-yang.png') center/contain no-repeat; /* ![image7](image7) */
+  animation: yinyangSpin 12s linear infinite;
+  opacity: 0.65;
+  filter: drop-shadow(0 0 15px #fff8) blur(0.5px);
+}
+@keyframes yinyangSpin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Zen overlay tartalom */
+.zen-overlay-content {
+  position: relative;
+  z-index: 100;
+  padding-top: 7vh;
+}
+
+/* Cím stílus */
+.zen-title {
+  font-family: 'Noto Serif JP', serif;
+  color: #fff;
+  text-shadow: 0 0 20px #2c2, 0 0 50px #1117;
+  letter-spacing: 4px;
+  font-size: 58px;
+  animation: titleAppear 1.8s cubic-bezier(0.7,0.1,0.3,1.5);
+}
+@keyframes titleAppear {
+  0% { opacity: 0; filter: blur(7px);}
+  100% { opacity: 1; filter: blur(0);}
+}
+
+/* Figyelem animáció */
+.zen-warning {
+  font-size: 32px;
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 2px;
+  animation: warningPulse 2.6s infinite;
+  text-shadow:
+    0 0 10px #ffb3b3,
+    0 0 22px #e33,
+    0 0 70px #fff5;
+}
+@keyframes warningPulse {
+  0% { opacity: 0.55; filter: blur(1px);}
+  60% { opacity: 1; filter: blur(0);}
+  100% { opacity: 0.55; filter: blur(1px);}
+}
+
+/* Zen gomb */
+.zen-btn {
+  font-size: 32px;
+  border-radius: 22px;
+  box-shadow: 0 6px 20px #1a2c1c44;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #3caea3 0%, #2b5d4b 100%);
+  border: none;
+  transition: background 0.4s, box-shadow 0.5s;
+}
+.zen-btn:hover {
+  background: linear-gradient(90deg, #6decb9 0%, #114e3c 100%);
+  box-shadow: 0 12px 40px #1a2c1c77;
+}
+
+/* Responsive optimalizációk */
+@media (max-width: 800px) {
+  .zen-title { font-size: 36px;}
+  .zen-yinyang { width: 90px; height: 90px;}
+  .zen-torii { width: 220px; height: 150px;}
+  #koi1, #koi2 { width: 80px; height: 80px;}
+}

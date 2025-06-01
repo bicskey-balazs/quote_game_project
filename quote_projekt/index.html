@@ -3,39 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/src/style.css">
-    <title>projekt</title>
+    <title>Zen Meditáció</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/meditation.css">
+    <link rel="stylesheet" href="src/zen.css">
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <div class="container" id="rootDiv">
-      <div class="display-3 text-center" style="font-size: 50px;">Alap oldal</div>
-      <div class="inputGroup text-center mt-3">
-        <btn id="loadMainBtn" class="btn btn-info text-white" style="font-size: 30px;">Meditáció</btn>
+    <div id="rootDiv">
+    <!-- Fátyolos zen háttér -->
+    <div class="zen-bg">
+      <!-- Köd animáció -->
+      <div class="zen-fog"></div>
+      <div class="zen-fog zen-fog2"></div>
+      <!-- Fény animáció -->
+      <div class="zen-light"></div>
+      <!-- Levelek animáció -->
+      <div class="zen-leaves"></div>
+      <!-- Hullámzó víz -->
+      <div class="zen-water"></div>
+      <!-- Torii kapu SVG -->
+      <div class="zen-torii">
+        <!-- Egyedi SVG vagy img lehet ide -->
+        <img style="opacity: 0.6;" src="src/kepek/bg/poo.png" alt="Torii kapu" />
       </div>
-
-      <div style="font-size: 25px;font-weight: bold;" class="text-danger pulse">Fontos!</div>
-      <div style="font-size: 20px;font-weight: bold;" class="text-danger">A legjobb élményhez hangosítsd fel az oldalt!</div>
-      <div style="font-size: 20px;">
+      <!-- Koi hal animáció -->
+      <div class="zen-koi" id="koi1"></div>
+      <div class="zen-koi" id="koi2"></div>
+      <!-- Yin-yang animáció -->
+      <div class="zen-yinyang"></div>
+    </div>
+    
+    <div class="zen-overlay-content container">
+      <div class="welcomepage">
+        <div class="zen-title display-3 text-center">Welcome</div>
+        <div class="inputGroup text-center mt-3">
+          <button id="loadMainBtn" class="btn btn-info text-white zen-btn">Meditáció</button>
+        </div>
+        <div class="zen-warning pulse text-danger text-center mt-4">Fontos!</div>
+        <div class="text-danger text-center fw-bold" style="font-size: 20px;">A legjobb élményhez hangosítsd fel az oldalt!</div>
+        <div class="text-center" style="font-size: 20px;">
           <strong>Nincs angol TTS hang telepítve ezen a gépen!</strong><br>
           A felolvasás magyarul fog történni, vagy nem lesz természetes az angol kiejtés.
           <br><br>
           <strong>Elérhető felolvasó telepítése:</strong><br>
-
           <u><strong>Windows-on:</strong></u>
-          <ol>
+          <ol style="display:inline-block;text-align:left">
             <li>Gépház → Idő és nyelv → Beszéd</li>
             <li>„Hangok hozzáadása”</li>
             <li>Válassz „English (United States)” vagy más angol hangot</li>
             <li>Böngésző újraindítása</li>
           </ol>
-
           <u><strong>Mac-en:</strong></u>
           <p>System Settings → Accessibility → Spoken Content → System Voice</p>
-
           <p><strong>Ajánlott böngészők:</strong> Microsoft Edge, Firefox, Google Chrome (néha működik)</p>
+        </div>
       </div>
-      <script src="src/js/loadMainPage.js" type="module" defer></script>
     </div>
+    
+</div>
+    </div>
+    <script src="src/js/loadMainPage.js" type="module" defer></script>
   </body>
 </html>

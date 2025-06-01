@@ -24,6 +24,7 @@ window.addEventListener("click", ()=>{
     if(firstclick){
 
         bgmusic.play()
+        bgmusic.volume = 0.6
     }
     firstclick = false;
 })
