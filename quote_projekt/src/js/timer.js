@@ -10,8 +10,8 @@ function wait(ms) {
 
 timerBtn.addEventListener("click", async () => {
     let timerValue = (timerInput1.value*60) + Number(timerInput2.value) + (timerInput3.value / 60);
-    if(timerValue <= 0){
-        alert("0 percnél nagyobb értéket adjon meg!");
+    if(timerValue <= 1){
+        alert("1 percnél nagyobb értéket adjon meg!");
         return;
     }
     if(timerValue >= 1000){
@@ -25,13 +25,14 @@ timerBtn.addEventListener("click", async () => {
     //időzítő indul
     timerDisplay.style.display = "inline";
     for(let i = timerValue*60; i > -1; i--){
-        await wait(1000);
-
         const hour = String(Math.floor(i / 3600)).padStart(2, '0');
         const min = String(Math.floor((i % 3600) / 60)).padStart(2, '0');
         const sec = String(i % 60).padStart(2, '0');
 
         timerDisplay.innerHTML = `${hour}:${min}:${sec}`;
+
+        await wait(1000);
+
     }
     timerDisplay.style.display = "none";
     document.querySelector(".timerInputs").style.display = "inline";

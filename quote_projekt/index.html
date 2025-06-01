@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <a href="#" class="btn btn-primary my-5" id="beszelj" >Beszélj</a>
+      <!-- <a href="#" class="btn btn-primary my-5" id="beszelj" >Beszélj</a> -->
 
       <div class="display-3" style="font-size: 50px;" id="test"></div>
       <div class="" style="font-size: 30px;" id="test2"></div>
@@ -17,16 +17,18 @@
         <div class="d-flex justify-content-center align-items-center">
           <div class="timerInputs">
             <label for="setTimer1" style="font-size: 30px;">Időzítő beállítása:</label>
-            <div class="inputGroup">
-              <input class="timerInput" type="number" id="setTimer1" value="0">
+            <div class="inputGroup text-center mt-3">
+              <input class="timerInput bg-info text-white" type="number" id="setTimer1" value="0">
               <span class="colon">:</span>
-              <input class="timerInput" type="number" id="setTimer2" value="0">
+              <input class="timerInput bg-info text-white" type="number" id="setTimer2" value="0">
               <span class="colon">:</span>
-              <input class="timerInput" type="number" id="setTimer3" value="1">
+              <input class="timerInput bg-info text-white" type="number" id="setTimer3" value="1">
             </div>
-            <button class="btn btn-primary" id="timerBtn" >Időzítő indítása</button>
+              <div class="text-center mt-3">
+                <button class="btn btn-outline-info" style="font-size: 25px;" id="timerBtn">Meditáció kezdete</button>
+              </div>
           </div>
-          <div id="timerDisplay"></div>
+          <div id="timerDisplay" style="display: none;"></div>
       </div>
     </div>
     <script type="module" src="/src/js/main.js"></script>
