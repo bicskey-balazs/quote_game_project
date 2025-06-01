@@ -11,6 +11,7 @@ const stopBtn = document.querySelector("#stopBtn");
 let stopMeditationElement = document.querySelector("#seged");
 const timerInputs = document.querySelector(".inputGroup");
 const timerLabel = document.querySelector("#timerLabel");
+const rootDiv = document.querySelector("#rootDiv");
 stopBtn.style.display = "none";
 
 //favágó megoldás
@@ -86,6 +87,7 @@ timerBtn.addEventListener("click", async () => {
             test2.style.display = "none";
             timerInputs.style.display = "inline";
             timerBtn.style.display = "inline";
+            rootDiv.style.backgroundImage = "";
 
             stopMeditation = false;
 
@@ -111,4 +113,5 @@ timerBtn.addEventListener("click", async () => {
     stopBtn.style.display = "none";
     timerInputs.style.display = "inline";
     timerBtn.style.display = "inline";
+    rootDiv.style.backgroundImage = "";
 });

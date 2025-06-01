@@ -1,29 +1,43 @@
 const startGomb = document.querySelector("#timerBtn");
 const rootDiv = document.querySelector("#rootDiv");
 const bgOverlay = document.querySelector("#bgOverlay");
+let stopMeditation = document.querySelector("#seged");
+
+//nem kéne mindenhova berakni de mostmár mindegy
+const timerInput1 = document.querySelector("#setTimer1");
+const timerInput2 = document.querySelector("#setTimer2");
+const timerInput3 = document.querySelector("#setTimer3");
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function bgChange(kepUrl) {
-  // Step 1: Set new background image on overlay
-  bgOverlay.style.backgroundImage = `url("src/kepek/${kepUrl}")`;
-  bgOverlay.style.opacity = "1"; // Start fade-in
+    if(stopMeditation.innerHTML == "stop"){
+        bgOverlay.style.backgroundImage = "";
+        return;
+    }
+    bgOverlay.style.backgroundImage = `url("src/kepek/${kepUrl}")`;
+    bgOverlay.style.opacity = "1";
 
-  await wait(1000); // Wait for fade-in to complete
+    await wait(1000);
 
-  // Step 2: Set new image to main container, then fade out overlay
-  rootDiv.style.backgroundImage = `url("src/kepek/${kepUrl}")`;
-  bgOverlay.style.opacity = "0"; // Fade overlay out
+    rootDiv.style.backgroundImage = `url("src/kepek/${kepUrl}")`;
+    bgOverlay.style.opacity = "0";
 
-  await wait(9000); // Show image for 9 seconds (total = 10)
+    await wait(9000);
 }
 
 startGomb.addEventListener("click", async () => {
-  for (const filename of imageFilenames) {
-    await bgChange(filename);
-  }
+    let timerValue = Math.floor((timerInput1.value*60) + Number(timerInput2.value) + (timerInput3.value / 60));
+    //majd ki kell számolni
+    for(let i = 0; i < timerValue; i++){
+        if(stopMeditation.innerHTML == "stop") break;
+        for (const filename of imageFilenames) {
+            if(stopMeditation.innerHTML == "stop") break;
+            await bgChange(filename);
+        }
+    }
 });
 //nagyon favágó de máshogy nem engedi
 const imageFilenames = [
