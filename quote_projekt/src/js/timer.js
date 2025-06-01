@@ -1,4 +1,6 @@
-const timerInput = document.querySelector("#setTimer");
+const timerInput1 = document.querySelector("#setTimer1");
+const timerInput2 = document.querySelector("#setTimer2");
+const timerInput3 = document.querySelector("#setTimer3");
 const timerDisplay = document.querySelector("#timerDisplay");
 const timerBtn = document.querySelector("#timerBtn");
 
@@ -7,16 +9,21 @@ function wait(ms) {
 }
 
 timerBtn.addEventListener("click", async () => {
-    let timerValue = timerInput.value;
+    let timerValue = (timerInput1.value*60) + Number(timerInput2.value) + (timerInput3.value / 60);
     if(timerValue <= 0){
-        alert("0-nál nagyobb értéket adjon meg!");
+        alert("0 percnél nagyobb értéket adjon meg!");
         return;
     }
     if(timerValue >= 1000){
-        alert("1000-nél kisebb értéket adjon meg!");
+        alert("1000 percnél kisebb értéket adjon meg!");
         return;
     }
 
+    document.querySelector(".timerInputs").style.display = "none";
+
+
+    //időzítő indul
+    timerDisplay.style.display = "inline";
     for(let i = timerValue*60; i > -1; i--){
         await wait(1000);
 
@@ -26,5 +33,6 @@ timerBtn.addEventListener("click", async () => {
 
         timerDisplay.innerHTML = `${hour}:${min}:${sec}`;
     }
-    timerDisplay.innerHTML = "időzítő lejárt";
+    timerDisplay.style.display = "none";
+    document.querySelector(".timerInputs").style.display = "inline";
 });
