@@ -5,6 +5,9 @@ const startGomb = document.querySelector("#timerBtn");
 let quoteList = [];
 let isFirstQuote = true;
 
+//favágó megoldás
+let stopMeditation = document.querySelector("#seged");
+
 const timerInput1 = document.querySelector("#setTimer1");
 const timerInput2 = document.querySelector("#setTimer2");
 const timerInput3 = document.querySelector("#setTimer3");
@@ -33,13 +36,16 @@ async function getQuotes() {
 }
 
 async function startQuotes(){
-  let timerValue = (timerInput1.value*60) + Number(timerInput2.value) + (timerInput3.value / 60);
-  if(timerValue <= 1) return;
+  let timerValue = (Number(timerInput1.value)*3600) + (Number(timerInput2.value)*60) + Number(timerInput3.value );
+  if(timerValue <= 60) return;
+
+  test.style.display = "inline";
+  test2.style.display = "inline";
 
   await getQuotes();
   isFirstQuote = true;
   let quoteIndex = 0;
-  for(let i = 0; i < Math.floor(timerValue)*4; i++){
+  for(let i = 0; i < Math.floor(timerValue/10)  ;i++){
     console.log(Math.floor(timerValue));
     const quoteData = quoteList[quoteIndex];
 
@@ -53,8 +59,15 @@ async function startQuotes(){
     quoteIndex++;
     if(quoteIndex == 50) quoteIndex = 0;
 
-    await wait(15000);
+    if(stopMeditation.innerHTML == "stop"){
+      test.style.display = "none";
+      test2.style.display = "none";
+      break;
+    }
+    await wait(10000);
   }
+  test.style.display = "none";
+  test2.style.display = "none";
 }
 
 function underline(s) {
@@ -116,12 +129,12 @@ function callQuoteAndRead() {
 
 function speakQuoteWhenVoicesLoaded(quote, author) {
   function speak() {
-    const text = `${quote} — ${author}`;
+    const text = `${quote}`;
     const utterance = new window.SpeechSynthesisUtterance(text);
     // Lassabb tempó, hangsúlyosabb előadás
     utterance.rate = 0.8;      // Lassabb (alap: 1.0)
-    utterance.pitch = 0.8;     // Mélyebb és hangsúlyosabb (alap: 1.0)
-    utterance.volume = 1.0;    // Maximális hangerő
+    utterance.pitch = 0.65;     // Mélyebb és hangsúlyosabb (alap: 1.0)
+    utterance.volume = 1.2;    // Maximális hangerő
     const voice = getEnglishMaleVoice();
     if (voice) {
       utterance.voice = voice;

@@ -8,30 +8,34 @@
     <title>projekt</title>
   </head>
   <body>
-    <div class="container">
-      <!-- <a href="#" class="btn btn-primary my-5" id="beszelj" >Beszélj</a> -->
-
-      <div class="display-3" style="font-size: 50px;" id="test"></div>
-      <div class="" style="font-size: 30px;" id="test2"></div>
-
-        <div class="d-flex justify-content-center align-items-center">
-          <div class="timerInputs">
-            <label for="setTimer1" style="font-size: 30px;">Időzítő beállítása:</label>
-            <div class="inputGroup text-center mt-3">
-              <input class="timerInput bg-info text-white" type="number" id="setTimer1" value="0">
-              <span class="colon">:</span>
-              <input class="timerInput bg-info text-white" type="number" id="setTimer2" value="0">
-              <span class="colon">:</span>
-              <input class="timerInput bg-info text-white" type="number" id="setTimer3" value="1">
-            </div>
-              <div class="text-center mt-3">
-                <button class="btn btn-outline-info" style="font-size: 25px;" id="timerBtn">Meditáció kezdete</button>
-              </div>
-          </div>
-          <div id="timerDisplay" style="display: none;"></div>
+    <div class="container" id="rootDiv">
+      <div class="display-3 text-center" style="font-size: 50px;">Alap oldal</div>
+      <div class="inputGroup text-center mt-3">
+        <btn id="loadMainBtn" class="btn btn-info text-white" style="font-size: 30px;">Meditáció</btn>
       </div>
+
+      <div style="font-size: 25px;font-weight: bold;" class="text-danger pulse">Fontos!</div>
+      <div style="font-size: 20px;font-weight: bold;" class="text-danger">A legjobb élményhez hangosítsd fel az oldalt!</div>
+      <div style="font-size: 20px;">
+          <strong>Nincs angol TTS hang telepítve ezen a gépen!</strong><br>
+          A felolvasás magyarul fog történni, vagy nem lesz természetes az angol kiejtés.
+          <br><br>
+          <strong>Elérhető felolvasó telepítése:</strong><br>
+
+          <u><strong>Windows-on:</strong></u>
+          <ol>
+            <li>Gépház → Idő és nyelv → Beszéd</li>
+            <li>„Hangok hozzáadása”</li>
+            <li>Válassz „English (United States)” vagy más angol hangot</li>
+            <li>Böngésző újraindítása</li>
+          </ol>
+
+          <u><strong>Mac-en:</strong></u>
+          <p>System Settings → Accessibility → Spoken Content → System Voice</p>
+
+          <p><strong>Ajánlott böngészők:</strong> Microsoft Edge, Firefox, Google Chrome (néha működik)</p>
+      </div>
+      <script src="src/js/loadMainPage.js" type="module" defer></script>
     </div>
-    <script type="module" src="/src/js/main.js"></script>
-    <script type="module" src="/src/js/timer.js"></script>
   </body>
 </html>
