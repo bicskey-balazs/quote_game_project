@@ -43,10 +43,3 @@ loadMainBtn.addEventListener("click", async() => {
     bgmusic.volume = 0.6
 })
 
-document.addEventListener('click', async() => {
-  bgmusic.play();
-})
-window.addEventListener('load', async() => {
-
-  document.querySelector("body").click()
-})
