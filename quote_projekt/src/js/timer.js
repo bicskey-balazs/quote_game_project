@@ -19,15 +19,15 @@ let stopMeditation = false;
 const test = document.querySelector("#test");
 const test2 = document.querySelector("#test2");
 
-let firstclick = true;
-window.addEventListener("click", ()=>{
-    if(firstclick){
+// let firstclick = true;
+// window.addEventListener("click", ()=>{
+//     if(firstclick){
 
-        bgmusic.play()
-        bgmusic.volume = 0.6
-    }
-    firstclick = false;
-})
+//         bgmusic.play()
+//         bgmusic.volume = 0.6
+//     }
+//     firstclick = false;
+// })
 
 function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -57,7 +57,7 @@ timerBtn.addEventListener("click", async () => {
     stopMeditationElement.innerHTML = "";
     timerLabel.style.display = "none";
     timerBtn.style.display = "none";
-    timerDisplay.style.display = "inline";
+    timerDisplay.style.display = "flex";
     stopBtn.style.display = "inline";
     bgmusic.pause()
     bgmusic.currentTime = 0

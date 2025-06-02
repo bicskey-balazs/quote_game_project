@@ -1,4 +1,3 @@
-/* Zen háttérkép */
 .zen-bg {
   position: fixed;
   width: 100vw;
@@ -7,13 +6,12 @@
   top: 0; left: 0;
   z-index: 0;
   background: linear-gradient(180deg, #25403e 0%, #111a1a 100%);
-  background-image: url('kepek/bg/4k-Serene-Nature-Torii-Arch-4K-Wallpaper.jpg'); /* pl. ![image5](image5) */
+  background-image: url('kepek/bg/4k-Serene-Nature-Torii-Arch-4K-Wallpaper.jpg');
   background-size: cover;
   background-position: center;
   filter: blur(0.5px) brightness(0.98);
 }
 
-/* Fátyolos köd animáció */
 .zen-fog, .zen-fog2 {
   position: absolute;
   left: 0; top: 0;
@@ -41,7 +39,6 @@
   100% { transform: translateY(20px) scale(1.25);}
 }
 
-/* Fény animáció (napfény/shafts) */
 .zen-light {
   position: absolute;
   width: 100vw;
@@ -60,7 +57,6 @@
   100% { filter: blur(0px) brightness(1.1);}
 }
 
-/* Levelek hullámzása animációval */
 .zen-leaves {
   pointer-events: none;
   position: absolute;
@@ -78,7 +74,6 @@
   100% { background-position: 1200px 500px, 600px 700px; }
 }
 
-/* Hullámzó víz animáció */
 .zen-water {
   position: absolute;
   left: 0; bottom: 0;
@@ -101,7 +96,6 @@
   100% { transform: translateX(200px);}
 }
 
-/* Torii kapu animáció és beúszás */
 .zen-torii {
   position: absolute;
   left: 50%; top: 38%;
@@ -116,7 +110,6 @@
   100% { opacity: 0.97; transform: translate(-50%, -50%) scale(1.04);}
 }
 
-/* Koi halak animációja */
 .zen-koi {
   position: absolute;
   width: 180px; height: 180px;
@@ -129,12 +122,12 @@
 }
 #koi1 {
   left: 10vw; bottom: 22vh;
-  background-image: url('kepek/bg/koi_black.png'); /* ![image6](image6) */
+  background-image: url('kepek/bg/koi_black.png');
   animation: koiSwim1 17s linear infinite;
 }
 #koi2 {
   left: 57vw; bottom: 18vh;
-  background-image: url('kepek/bg/koi_white.png'); /* ![image6](image6) invertált vagy másik irány */
+  background-image: url('kepek/bg/koi_white.png');
   animation: koiSwim2 22s linear infinite;
 }
 @keyframes koiSwim1 {
@@ -152,13 +145,12 @@
 
 
 
-/* Yin-yang animáció */
 .zen-yinyang {
   position: absolute;
   right: 3vw; top: 11vh;
   width: 160px; height: 160px;
   z-index: 12;
-  background: url('kepek/bg/yin-yang.png') center/contain no-repeat; /* ![image7](image7) */
+  background: url('kepek/bg/yin-yang.png') center/contain no-repeat;
   animation: yinyangSpin 12s linear infinite;
   opacity: 0.65;
   filter: drop-shadow(0 0 15px #fff8) blur(0.5px);
@@ -168,14 +160,13 @@
   100% { transform: rotate(360deg);}
 }
 
-/* Zen overlay tartalom */
 .zen-overlay-content {
   position: relative;
   z-index: 100;
   padding-top: 7vh;
 }
 
-/* Cím stílus */
+
 .zen-title {
   font-family: 'Noto Serif JP', serif;
   color: #fff;
@@ -189,24 +180,24 @@
   100% { opacity: 1; filter: blur(0);}
 }
 
-/* Figyelem animáció */
+
 .zen-warning {
   font-size: 32px;
   font-family: 'Noto Serif JP', serif;
   letter-spacing: 2px;
-  animation: warningPulse 2.6s infinite;
+  /* animation: warningPulse 2.6s infinite; */
   text-shadow:
     0 0 10px #ffb3b3,
     0 0 22px #e33,
     0 0 70px #fff5;
 }
-@keyframes warningPulse {
+/* @keyframes warningPulse {
   0% { opacity: 0.55; filter: blur(1px);}
   60% { opacity: 1; filter: blur(0);}
   100% { opacity: 0.55; filter: blur(1px);}
-}
+} */
 
-/* Zen gomb */
+
 .zen-btn {
   font-size: 32px;
   border-radius: 22px;
@@ -221,7 +212,7 @@
   box-shadow: 0 12px 40px #1a2c1c77;
 }
 
-/* Responsive optimalizációk */
+
 @media (max-width: 800px) {
   .zen-title { font-size: 36px;}
   .zen-yinyang { width: 90px; height: 90px;}

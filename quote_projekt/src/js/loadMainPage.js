@@ -1,6 +1,12 @@
 const loadMainBtn = document.querySelector("#loadMainBtn");
 const rootDiv = document.querySelector("#rootDiv");
 
+// document.addEventListener("click", () => {
+//     const bgmusic = document.querySelector("#bgmusic");
+//     bgmusic.play()
+//     bgmusic.volume = 0.6
+// })
+
 loadMainBtn.addEventListener("click", async() => {
     const response = await fetch("meditation.html");
     const resHtml = await response.text();
@@ -19,16 +25,19 @@ loadMainBtn.addEventListener("click", async() => {
       document.body.appendChild(script);
     }
     const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = "src/meditation.css";
-  document.head.appendChild(link);
+    link.rel = "stylesheet";
+    link.href = "src/meditation.css";
+    document.head.appendChild(link);
   
- const links = document.querySelectorAll('link[rel="stylesheet"]');
+    const links = document.querySelectorAll('link[rel="stylesheet"]');
 
-links.forEach(link => {
-  if (link.href.includes('styles.css') || link.href.includes('zen.css')) { // or use exact match
-    link.remove(); // modern way
-  }
-});
-    
+    links.forEach(link => {
+    if (link.href.includes('styles.css') || link.href.includes('zen.css')) {
+        link.remove();
+    }
+    });
+
+    const bgmusic = document.querySelector("#bgmusic");
+    bgmusic.play()
+    bgmusic.volume = 0.6
 })

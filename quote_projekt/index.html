@@ -11,26 +11,17 @@
   </head>
   <body>
     <div id="rootDiv">
-    <!-- Fátyolos zen háttér -->
     <div class="zen-bg">
-      <!-- Köd animáció -->
       <div class="zen-fog"></div>
       <div class="zen-fog zen-fog2"></div>
-      <!-- Fény animáció -->
       <div class="zen-light"></div>
-      <!-- Levelek animáció -->
       <div class="zen-leaves"></div>
-      <!-- Hullámzó víz -->
       <div class="zen-water"></div>
-      <!-- Torii kapu SVG -->
       <div class="zen-torii">
-        <!-- Egyedi SVG vagy img lehet ide -->
         <img style="opacity: 0.6;" src="src/kepek/bg/poo.png" alt="Torii kapu" />
       </div>
-      <!-- Koi hal animáció -->
       <div class="zen-koi" id="koi1"></div>
       <div class="zen-koi" id="koi2"></div>
-      <!-- Yin-yang animáció -->
       <div class="zen-yinyang"></div>
     </div>
     
@@ -40,20 +31,18 @@
         <div class="inputGroup text-center mt-3">
           <button id="loadMainBtn" class="btn btn-info text-white zen-btn">Meditáció</button>
         </div>
-        <div class="zen-warning pulse text-danger text-center mt-4">Fontos!</div>
-        <div class="text-danger text-center fw-bold" style="font-size: 20px;">A legjobb élményhez hangosítsd fel az oldalt!</div>
-        <div class="text-center" style="font-size: 20px;">
+        <div class="zen-warning pulse text-danger text-center mt-4" style="text-shadow:0 0 5px black,0 0 10px black,0 0 15px black,0 0 20px black;">Fontos!</div>
+        <div class="text-danger text-center fw-bold" style="font-size: 20px;text-shadow:0 0 5px black,0 0 10px black,0 0 15px black,0 0 20px black;">A legjobb élményhez hangosítsd fel az oldalt!</div>
+        <div class="text-center" style="font-size: 20px;color: white; text-shadow:0 0 5px black,0 0 10px black,0 0 15px black,0 0 20px black;" id="infok">
           <strong>Nincs angol TTS hang telepítve ezen a gépen!</strong><br>
           A felolvasás magyarul fog történni, vagy nem lesz természetes az angol kiejtés.
           <br><br>
           <strong>Elérhető felolvasó telepítése:</strong><br>
           <u><strong>Windows-on:</strong></u>
-          <ol style="display:inline-block;text-align:left">
             <li>Gépház → Idő és nyelv → Beszéd</li>
             <li>„Hangok hozzáadása”</li>
             <li>Válassz „English (United States)” vagy más angol hangot</li>
             <li>Böngésző újraindítása</li>
-          </ol>
           <u><strong>Mac-en:</strong></u>
           <p>System Settings → Accessibility → Spoken Content → System Voice</p>
           <p><strong>Ajánlott böngészők:</strong> Microsoft Edge, Firefox, Google Chrome (néha működik)</p>

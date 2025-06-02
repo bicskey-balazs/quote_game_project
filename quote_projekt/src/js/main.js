@@ -26,7 +26,7 @@ async function getQuotes() {
     const parsedData = await response.json();
 
     parsedData.forEach(item => {
-      const quoteEntry = `${item.q};${item.a}`;
+      const quoteEntry = `${item.q}#${item.a}`;
       quoteList.push(quoteEntry);
     });
 
@@ -48,7 +48,7 @@ async function startQuotes(){
   for(let i = 0; i < Math.floor(timerValue/10)  ;i++){
     const quoteData = quoteList[quoteIndex];
 
-    const [actQuoteText, actQuoteAuthor] = quoteData.split(";");
+    const [actQuoteText, actQuoteAuthor] = quoteData.split("#");
 
     test.innerHTML = actQuoteText;
     test2.innerHTML = actQuoteAuthor;
@@ -76,24 +76,19 @@ function underline(s) {
     return s;
 }
 
-// Válassza a Google UK English Male (en-GB) voice-ot, ha elérhető, különben fallback
 function getEnglishMaleVoice() {
   const voices = window.speechSynthesis.getVoices();
 
-  // 1. Próbáljuk pontosan a "Google UK English Male [en-GB]" hangot választani
   let maleVoice = voices.find(v => v.name === "Google UK English Male" && v.lang === "en-GB");
 
-  // 2. Ha nincs ilyen, keressünk bármilyen angol voice-ban 'male' szóra
   if (!maleVoice) {
     maleVoice = voices.find(v =>
       v.lang.startsWith('en') && v.name.toLowerCase().includes('male')
     );
   }
 
-  // 3. Ha nincs, válasszunk bármilyen angol voice-ot
   let enVoice = maleVoice || voices.find(v => v.lang.startsWith('en'));
 
-  // 4. Ha semmi sincs, fallback: első voice
   if (!enVoice) {
     var undszab = underline("Mikrosoft Szabolcs");
     if(isFirstQuote){
@@ -130,18 +125,17 @@ function speakQuoteWhenVoicesLoaded(quote, author) {
   function speak() {
     const text = `${quote}`;
     const utterance = new window.SpeechSynthesisUtterance(text);
-    // Lassabb tempó, hangsúlyosabb előadás
-    utterance.rate = 0.8;      // Lassabb (alap: 1.0)
-    utterance.pitch = 0.65;     // Mélyebb és hangsúlyosabb (alap: 1.0)
-    utterance.volume = 1.2;    // Maximális hangerő
+    utterance.rate = 0.8;  
+    utterance.pitch = 0.65;     
+    utterance.volume = 1.2;   
     const voice = getEnglishMaleVoice();
     if (voice) {
       utterance.voice = voice;
-      utterance.lang = voice.lang; // fontos!
+      utterance.lang = voice.lang; 
     }
     window.speechSynthesis.speak(utterance);
   }
-  // Ha már betöltött a hanglista, azonnal szólj
+  
   if (window.speechSynthesis.getVoices().length > 0) {
     speak();
   } else {
@@ -152,7 +146,7 @@ function speakQuoteWhenVoicesLoaded(quote, author) {
 // beszeljgomb.addEventListener('click', callQuoteAndRead);
 startGomb.addEventListener('click', startQuotes);
 
-// Hanglista debugolásra (nem kötelező)
+
 window.speechSynthesis.onvoiceschanged = function() {
   const voices = window.speechSynthesis.getVoices();
   console.log("Elérhető hangok:", voices.map(v => `${v.name} [${v.lang}]`));

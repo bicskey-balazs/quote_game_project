@@ -5,13 +5,18 @@ body {
   font-family: 'Noto Serif JP', 'Roboto', serif;
   background: linear-gradient(180deg, #0b2224 0%, #18302c 100%);
   overflow-x: hidden;
+
+  background-image: url("kepek/bg/cws5grxz64m91.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 #bgOverlay {
   position: fixed;
   inset: 0;
   z-index: 1;
-  background-image: url('../assets/zen-forest.jpg');
+  background-image: url('/zen-forest.jpg');
   background-size: cover;
   background-position: center;
   filter: blur(1.5px) brightness(0.92) grayscale(10%);
@@ -19,13 +24,13 @@ body {
   transition: opacity 1.8s;
   box-shadow: 0 0 200px #18302c inset;
 }
-#bgOverlay::after {
+/* #bgOverlay::after {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 50% 25%, rgba(255,255,255,0.09) 0%, rgba(20,40,40,0.41) 89%);
   pointer-events: none;
-}
+} */
 
 .zen-fog, .zen-fog2 {
   position: fixed;
@@ -142,7 +147,7 @@ body {
 }
 #koi1 {
   left: 12vw; bottom: 15vh;
-  background-image: url('../assets/koi1.png');
+  background-image: url('kepek/bg/koi1.png');
   animation: koiSwim1 22s linear infinite;
 }
 #koi2 {
@@ -168,7 +173,7 @@ body {
   right: 3vw; top: 9vh;
   width: 120px; height: 120px;
   z-index: 18;
-  background: url('../assets/yin-yang.png') center/contain no-repeat;
+  background: url('kepe/bg/yin-yang.png') center/contain no-repeat;
   animation: yinyangSpin 15s linear infinite;
   opacity: 0.54;
   filter: drop-shadow(0 0 18px #fff8) blur(0.5px);
@@ -286,4 +291,32 @@ body {
   .zen-torii img { width: 260px; }
   .zen-koi { width: 80px; height: 80px; }
   #meditationMain { max-width: 99vw; }
+}
+
+.timerInput{
+  filter: brightness(0.92) grayscale(10%);
+  opacity: 0.98;
+  transition: opacity 1.8s;
+  box-shadow: 0 0 200px #18302c inset;
+}
+
+#personDiv{
+  transition: opacity 1s ease;
+  opacity: 1;
+
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  height: 500px;
+  width: 1000px;
+  background-repeat: no-repeat;
+    background-size: cover;
+
+
+      -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
