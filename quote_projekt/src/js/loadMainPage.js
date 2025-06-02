@@ -1,5 +1,6 @@
 const loadMainBtn = document.querySelector("#loadMainBtn");
 const rootDiv = document.querySelector("#rootDiv");
+const bgmusic = document.querySelector("#bgmusic")
 
 // document.addEventListener("click", () => {
 //     const bgmusic = document.querySelector("#bgmusic");
@@ -40,4 +41,12 @@ loadMainBtn.addEventListener("click", async() => {
     const bgmusic = document.querySelector("#bgmusic");
     bgmusic.play()
     bgmusic.volume = 0.6
+})
+
+document.addEventListener('click', async() => {
+  bgmusic.play();
+})
+window.addEventListener('load', async() => {
+
+  document.querySelector("body").click()
 })
